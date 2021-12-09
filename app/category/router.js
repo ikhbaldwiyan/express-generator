@@ -1,8 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const index = require('./controller');
+const categoryController = require('./controller');
 
-/* GET home page. */
-router.get('/', index);
+router.get('/', categoryController.index);
+router.get('/create', categoryController.viewCreate);
+router.post('/create', categoryController.actionCreate);
+router.get('/edit/:id', categoryController.viewEdit);
+router.put('/edit/:id', categoryController.actionEdit);
+router.delete('/delete/:id', categoryController.actionDelete);
 
 module.exports = router;
